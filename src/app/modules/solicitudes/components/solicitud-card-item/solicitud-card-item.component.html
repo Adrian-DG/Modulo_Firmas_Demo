@@ -1,31 +1,58 @@
 <div class="card">
-    <div class="card-body">
-        <h5 class="card-title text-info">Detalle de Solicitud</h5>
+    <div class="card-header d-flex flex-row justify-contend-start align-items-start">
+        <h5 class="card-title text-muted">Detalle de Solicitud</h5>
+    </div>
+    <div class="card-body">       
         <ul class="details">
             <li class="detail-info"><span class="text-muted"><strong>ID: </strong>{{ item.id }}</span></li>
             <li class="detail-info"><span class="text-muted"><strong>Estatus: </strong>{{ item.estatus }}</span></li>
             <li class="detail-info"><span class="text-muted"><strong>Transacción: </strong>{{ item.transaccion }}</span></li>
             <li class="detail-info"><span class="text-muted"><strong>Nombre del Cliente: </strong>{{ item.cliente }}</span></li>
-            <li class="detail-info"><span class="text-muted"><strong>Cédula del cliente: </strong>{{ item.identificacion }}</span></li>
-            <li class="detail-info">
-                <span class="text-muted"><strong>Descripción del Producto:</strong></span>
-                <p class="text-muted"><strong>Tipo de Plan: </strong>{{ item.producto.tipo}}</p>
-                <p class="text-muted"><strong>Tipo de facturación: </strong>{{ item.producto.facturacion }}</p>
-                <p class="text-muted"><strong>Minutos de Voz: </strong>{{ item.producto.minutosVoz }}</p>
-                <p class="text-muted"><strong>Minimensajes: </strong>{{ item.producto.minutosMensaje }}</p>
-                <p class="text-muted"><strong>Volumen de Internet: </strong>{{ item.producto.volumenInternet }}</p>
-                <p class="text-muted"><strong>Activar Roaming: </strong>{{ (item.producto.roaming ? 'Si' : 'No') }}</p>
-                <p class="text-muted"><strong>Navegación Libre: </strong>{{ (item.producto.navegacion ? 'Si' : 'No') }}</p>
-                <p class="text-muted"><strong>Equipo: </strong>{{ item.producto.equipo }}</p>
+            <li class="detail-info"><span class="text-muted"><strong>Cédula del cliente: </strong>{{ item.identificacion | cedula }}</span></li>
+            <!-- Informacion Producto -->
+            <li class="detail-info accordion">
+                <div class="accordion-item">
+                    <h6 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#product' + item.id" aria-expanded="true" aria-controls="collapseOne">
+                            Detalles del Producto
+                        </button>
+                    </h6>
+                </div>
+                <div [attr.id]="'product' + item.id" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <span class="text-muted"><strong>Tipo de Plan: </strong>{{ item.producto.tipo}}</span><br>
+                            <span class="text-muted"><strong>Tipo de facturación: </strong>{{ item.producto.facturacion }}</span><br>
+                            <span class="text-muted"><strong>Minutos de Voz: </strong>{{ item.producto.minutosVoz }}</span><br>
+                            <span class="text-muted"><strong>Minimensajes: </strong>{{ item.producto.minutosMensaje }}</span><br>
+                            <span class="text-muted"><strong>Volumen de Internet: </strong>{{ item.producto.volumenInternet }}</span><br>
+                            <span class="text-muted"><strong>Activar Roaming: </strong>{{ (item.producto.roaming ? 'Si' : 'No') }}</span><br>
+                            <span class="text-muted"><strong>Navegación Libre: </strong>{{ (item.producto.navegacion ? 'Si' : 'No') }}</span><br>
+                            <span class="text-muted"><strong>Equipo: </strong>{{ item.producto.equipo }}</span>
+                    </div>
+                  </div>
             </li>
-            <li class="detail-info">
-                <span class="text-muted"><strong>Precio:</strong></span>
-                <p class="text-muted"><strong>Renta Mensual: </strong>{{ item.renta.mensual | currency }}</p>
-                <p class="text-muted"><strong>Tipo Facturación: </strong>{{ item.renta.anual | currency }}</p>
-            </li>
-            <li class="detail-info">
-                <span class="text-muted"><strong>Total (Con Impuesto): </strong>{{ item.renta.anualConImpuestos | currency }}</span>
+            <!-- informacion renta -->
+            <li class="detail-info accordion">
+                <div class="accordion-item">
+                    <h6 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#price' + item.id" aria-expanded="true" aria-controls="collapseOne">
+                           Precio
+                        </button>
+                    </h6>
+                </div>
+                <div [attr.id]="'price' + item.id" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                            <span class="text-muted"><strong>Renta Mensual: </strong>{{ item.renta.mensual | currency }}</span><br>
+                            <span class="text-muted"><strong>Tipo de facturacion: </strong>{{ item.renta.anual | currency }}</span><br>
+                            <span class="text-muted"><strong>Total (Con impuestos): </strong>{{ item.renta.anualConImpuestos | currency }}</span><br>
+                    </div>
+                  </div>
             </li>
         </ul>
+       <div class="d-grip gap-2 mt-4">
+            <button class="btn btn-secondary" style="width: 100%;">
+                Ver Contratos
+            </button>
+        </div>
     </div>
 </div>

@@ -5,12 +5,14 @@ import { SolicitudesRoutingModule } from './solicitudes-routing.module';
 import { BaseModule } from '../common/base.module';
 import { IndexComponent } from './pages/index/index.component';
 import { SolicitudCardItemComponent } from './components/solicitud-card-item/solicitud-card-item.component';
+import { CedulaPipe } from './pipes/cedula.pipe';
 
 
 @NgModule({
   declarations: [
     IndexComponent,
-    SolicitudCardItemComponent
+    SolicitudCardItemComponent,
+    CedulaPipe
   ],
   imports: [
     CommonModule,

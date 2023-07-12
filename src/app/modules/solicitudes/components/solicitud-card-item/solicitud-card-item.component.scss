@@ -1,5 +1,10 @@
 
+.card-header {
+    background-color: gainsboro;
+}
+
 .details {
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -10,4 +15,9 @@
     width: 100%;
     list-style: none;
     border-bottom: 1px solid gainsboro;
+    .accordion-button {
+        background-color: gainsboro !important;
+        color: rgb(63, 63, 63);
+        font-weight: 600;
+    }
 }
