@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title text-info">Detalle de Solicitud</h5>
+        <ul class="details">
+            <li class="detail-info"><span class="text-muted"><strong>ID: </strong>{{ item.id }}</span></li>
+            <li class="detail-info"><span class="text-muted"><strong>Estatus: </strong>{{ item.estatus }}</span></li>
+            <li class="detail-info"><span class="text-muted"><strong>Transacción: </strong>{{ item.transaccion }}</span></li>
+            <li class="detail-info"><span class="text-muted"><strong>Nombre del Cliente: </strong>{{ item.cliente }}</span></li>
+            <li class="detail-info"><span class="text-muted"><strong>Cédula del cliente: </strong>{{ item.identificacion }}</span></li>
+            <li class="detail-info">
+                <span class="text-muted"><strong>Descripción del Producto:</strong></span>
+                <p class="text-muted"><strong>Tipo de Plan: </strong>{{ item.producto.tipo}}</p>
+                <p class="text-muted"><strong>Tipo de facturación: </strong>{{ item.producto.facturacion }}</p>
+                <p class="text-muted"><strong>Minutos de Voz: </strong>{{ item.producto.minutosVoz }}</p>
+                <p class="text-muted"><strong>Minimensajes: </strong>{{ item.producto.minutosMensaje }}</p>
+                <p class="text-muted"><strong>Volumen de Internet: </strong>{{ item.producto.volumenInternet }}</p>
+                <p class="text-muted"><strong>Activar Roaming: </strong>{{ (item.producto.roaming ? 'Si' : 'No') }}</p>
+                <p class="text-muted"><strong>Navegación Libre: </strong>{{ (item.producto.navegacion ? 'Si' : 'No') }}</p>
+                <p class="text-muted"><strong>Equipo: </strong>{{ item.producto.equipo }}</p>
+            </li>
+            <li class="detail-info">
+                <span class="text-muted"><strong>Precio:</strong></span>
+                <p class="text-muted"><strong>Renta Mensual: </strong>{{ item.renta.mensual | currency }}</p>
+                <p class="text-muted"><strong>Tipo Facturación: </strong>{{ item.renta.anual | currency }}</p>
+            </li>
+            <li class="detail-info">
+                <span class="text-muted"><strong>Total (Con Impuesto): </strong>{{ item.renta.anualConImpuestos | currency }}</span>
+            </li>
+        </ul>
+    </div>
+</div>

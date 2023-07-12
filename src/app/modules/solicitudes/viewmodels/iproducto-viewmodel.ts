@@ -4,7 +4,7 @@ export interface IProductoViewModel {
     minutosVoz: number,
     minutosMensaje: number,
     volumenInternet: string,
-    Roaming: boolean,
+    roaming: boolean,
     navegacion: boolean, 
     equipo: string
 }
