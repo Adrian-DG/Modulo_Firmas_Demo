@@ -1,0 +1,48 @@
+[
+  {
+    "id": 123456,
+    "activo": false,
+    "estatus": "Por aceptar",
+    "transaccion": "Linea nueva",
+    "cliente": "Abel Ramirez Castro",
+    "identificacion": "40223456781",
+    "producto": {
+      "tipo": "Smart Indetenible",
+      "facturacion": "Postpago",
+      "minutosVoz": 200,
+      "minutosMensaje": 1000,
+      "volumenInternet": "5GB",
+      "Roaming": true,
+      "navegacion": true,
+      "equipo": "Samsung Galaxy S10"
+    },
+    "renta": {
+      "mensual": 1946,
+      "anual": 23352,
+      "anualConImpuestos": 25536
+    }
+  },
+  {
+    "id": 234567,
+    "activo": false,
+    "estatus": "Por aceptar",
+    "transaccion": "Linea nueva",
+    "cliente": "Miguel Castillo",
+    "identificacion": "40223456456",
+    "producto": {
+      "tipo": "Smart Indetenible",
+      "facturacion": "Postpago",
+      "minutosVoz": 200,
+      "minutosMensaje": 1000,
+      "volumenInternet": "5GB",
+      "Roaming": true,
+      "navegacion": true,
+      "equipo": "Samsung Galaxy S10"
+    },
+    "renta": {
+      "mensual": 1946,
+      "anual": 23352,
+      "anualConImpuestos": 25536
+    }
+  }
+]
