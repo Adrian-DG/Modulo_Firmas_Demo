@@ -6,13 +6,15 @@ import { BaseModule } from '../common/base.module';
 import { IndexComponent } from './pages/index/index.component';
 import { SolicitudCardItemComponent } from './components/solicitud-card-item/solicitud-card-item.component';
 import { CedulaPipe } from './pipes/cedula.pipe';
+import { ContractsComponent } from './pages/contracts/contracts.component';
 
 
 @NgModule({
   declarations: [
     IndexComponent,
     SolicitudCardItemComponent,
-    CedulaPipe
+    CedulaPipe,
+    ContractsComponent
   ],
   imports: [
     CommonModule,
