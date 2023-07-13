@@ -1,1 +1,30 @@
-<p>contracts works!</p>
+<div class="container mt-4">
+    <app-page-header [title]="'Contratos'"></app-page-header>
+    <div *ngIf="(_solicitudes.contracts$ | async) as data; else empty">
+        <div class="d-flex" *ngIf="data.length; else nothing">
+            
+           <div class="d-flex flex-row justify-content-between">
+            <div id="aside" ngbNav #nav="ngbNav" class="nav-pills flex-column" orientation="vertical">
+                <ng-container *ngFor="let item of data" [ngbNavItem]="item.short_name">
+                    <button ngbNavLink>{{ item.nombre }}</button>
+                    <ng-template ngbNavContent style="border: 1px solid red;">
+                        <p>
+                            {{ item.nombre }}
+                        </p>
+                    </ng-template>
+                </ng-container>                
+            </div>
+            <div [ngbNavOutlet]="nav" class="ms-4"></div>
+           </div>
+
+        </div>
+        <ng-template #nothing>
+            <div class="alert alert-warning">
+               <p class="text-center"> No hay Contratos</p>
+            </div>
+        </ng-template>
+    </div>
+    <ng-template #empty>
+        cargando....
+    </ng-template>
+</div>

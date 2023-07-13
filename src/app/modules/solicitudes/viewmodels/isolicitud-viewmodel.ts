@@ -1,3 +1,4 @@
+import { IContract } from "./icontract";
 import { IProductoViewModel } from "./iproducto-viewmodel";
 import { IRentaViewModel } from "./irenta-view-model";
 
@@ -9,5 +10,6 @@ export interface ISolicitudViewModel {
     cliente: string;
     identificacion: string;
     producto: IProductoViewModel,
-    renta: IRentaViewModel
+    renta: IRentaViewModel,
+    contratos: IContract[]
 }

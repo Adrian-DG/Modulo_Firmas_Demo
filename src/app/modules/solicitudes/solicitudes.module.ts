@@ -7,6 +7,7 @@ import { IndexComponent } from './pages/index/index.component';
 import { SolicitudCardItemComponent } from './components/solicitud-card-item/solicitud-card-item.component';
 import { CedulaPipe } from './pipes/cedula.pipe';
 import { ContractsComponent } from './pages/contracts/contracts.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ContractsComponent } from './pages/contracts/contracts.component';
   imports: [
     CommonModule,
     SolicitudesRoutingModule,
-    BaseModule
+    BaseModule,
+    NgbModule
   ]
 })
 export class SolicitudesModule { }
