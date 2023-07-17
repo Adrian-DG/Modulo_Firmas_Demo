@@ -5,16 +5,35 @@
             
            <div class="d-flex flex-row justify-content-between">
             <div id="aside" ngbNav #nav="ngbNav" class="nav-pills flex-column" orientation="vertical">
-                <ng-container *ngFor="let item of data" [ngbNavItem]="item.short_name">
-                    <button ngbNavLink>{{ item.nombre }}</button>
-                    <ng-template ngbNavContent style="border: 1px solid red;">
-                        <p>
-                            {{ item.nombre }}
-                        </p>
+                <ng-container *ngFor="let item of data" [ngbNavItem]="item.short_name" style="height: auto;">
+                    <button ngbNavLink (click)="setPdfSource(item.file)">
+                        <div class="box-btn">
+                            <div class="status-box" [ngClass]="item.estatus ? 'completado' : 'pendiente'"></div>
+                            <span>{{ item.nombre }}</span>                           
+                        </div>
+                    </button>
+                    <ng-template ngbNavContent>
+                        <pdf-viewer [src]="pdfSrc"
+                        [render-text]="true"
+                        [original-size]="true"
+                        style="display: block; width: 600px; height: 400px; background-color: gainsboro;"
+                        [page]="1"
+                        [zoom]="0.5"
+                        [zoom-scale]="'page-width'"
+                    ></pdf-viewer>
+                    <div id="firmas-box">
+                        <div>
+                            <span class="text-muted text-center">Firma Representante</span>
+                        </div>
+                        <div>
+                            <span class="text-muted text-center">Firma Cliente</span>
+                        </div>
+                    </div>
                     </ng-template>
                 </ng-container>                
             </div>
-            <div [ngbNavOutlet]="nav" class="ms-4"></div>
+            <div [ngbNavOutlet]="nav" class="ms-4">            
+            </div>
            </div>
 
         </div>

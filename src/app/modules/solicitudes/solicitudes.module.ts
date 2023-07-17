@@ -9,6 +9,8 @@ import { CedulaPipe } from './pipes/cedula.pipe';
 import { ContractsComponent } from './pages/contracts/contracts.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     SolicitudesRoutingModule,
     BaseModule,
-    NgbModule
+    NgbModule,
+    PdfViewerModule
   ]
 })
 export class SolicitudesModule { }

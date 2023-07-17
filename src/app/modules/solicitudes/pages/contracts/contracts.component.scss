@@ -1,18 +1,62 @@
 
 #aside {
-    background-color: gainsboro;
+    background-color: rgb(243, 243, 243);
     border-radius: 0.5em;
     padding: 0.5em;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
 }
 
 .nav-link {
     margin-bottom: 1em;
     font-weight: bold;
-    color: white;
-    background-color: rgb(141, 141, 141);
+    color: gray;
+    background-color: whitesmoke;
+    border:  2px solid gainsboro;
 }
 
 .active {
-    background-color: rgb(190, 46, 46) !important;
+    background-color: rgb(199, 82, 82) !important;
     color: white;
+}
+
+.box-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+    .status-box {
+        width: 1em;
+        height: 1em;
+        border: 2px solid white;
+        border-radius: 1em;
+    }
+}
+
+.completado {
+    background-color: green;
+}
+
+.pendiente {
+    background-color: rgb(165, 23, 23);
+}
+
+#firmas-box {
+    margin-top: 1em;
+    height: 5em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1em;
+    div {
+        width: 50%;
+        height: 100%;
+        border: 2px dotted gray;
+        border-radius: 0.5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

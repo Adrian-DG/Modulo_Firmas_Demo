@@ -8,6 +8,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { BaseModule } from './modules/common/base.module';
 
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +19,8 @@ import { BaseModule } from './modules/common/base.module';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    BaseModule
+    BaseModule,
+    PdfViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
