@@ -10,6 +10,8 @@ import { ContractsComponent } from './pages/contracts/contracts.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { SignatureComponent } from './pages/signature/signature.component';
+import { DigitalcontractComponent } from './pages/digitalcontract/digitalcontract.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     IndexComponent,
     SolicitudCardItemComponent,
     CedulaPipe,
-    ContractsComponent
+    ContractsComponent,
+    SignatureComponent,
+    DigitalcontractComponent
   ],
   imports: [
     CommonModule,
