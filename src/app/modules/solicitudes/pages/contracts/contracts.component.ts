@@ -10,7 +10,8 @@ import { SolicitudService } from '../../services/solicitud.service';
 export class ContractsComponent implements OnInit, AfterViewInit {
   
   private id!: number;
-  pdfSrc!: string;// = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
+  pdfSrc!: string | null;// = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
+  isLoading: boolean = false;
   constructor(private $activeRoute: ActivatedRoute, public _solicitudes: SolicitudService){}
   
   ngOnInit(): void {
@@ -25,7 +26,12 @@ export class ContractsComponent implements OnInit, AfterViewInit {
   }
 
   setPdfSource(source: string): void {
-    this.pdfSrc = source;
+    this.pdfSrc = null;
+    this.isLoading = true;
+    setTimeout(() => {
+      this.pdfSrc = source;
+      this.isLoading = false;
+    }, 2000)
   }
 
 }

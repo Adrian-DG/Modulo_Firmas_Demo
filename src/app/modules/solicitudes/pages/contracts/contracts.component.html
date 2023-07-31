@@ -1,26 +1,26 @@
 <div class="container mt-4">
     <app-page-header [title]="'Contratos'"></app-page-header>
     <div *ngIf="(_solicitudes.contracts$ | async) as data; else empty">
-        <div class="d-flex" *ngIf="data.length; else nothing">
+        <div class="d-flex flex-column" *ngIf="data.length; else nothing">
             
-           <div class="d-flex flex-row justify-content-between">
-            <div id="aside" ngbNav #nav="ngbNav" class="nav-pills flex-column" orientation="vertical">
-                <ng-container *ngFor="let item of data" [ngbNavItem]="item.short_name" style="height: auto;">
-                    <button ngbNavLink (click)="setPdfSource(item.file)">
-                        <div class="box-btn">
-                            <div class="status-box" [ngClass]="item.estatus ? 'completado' : 'pendiente'"></div>
-                            <span>{{ item.nombre }}</span>                           
-                        </div>
-                    </button>
-                    <ng-template ngbNavContent>
-                        <pdf-viewer [src]="pdfSrc"
-                        [render-text]="true"
-                        [original-size]="true"
-                        style="display: block; width: 600px; height: 400px; background-color: gainsboro;"
-                        [page]="1"
-                        [zoom]="0.5"
-                        [zoom-scale]="'page-width'"
-                    ></pdf-viewer>
+           <div class="d-flex flex-row justify-content-between gap-2">
+            <div id="aside" class="col-3">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <button (click)="setPdfSource(item.file)" *ngFor="let item of data" class="nav-link" data-toggle="pill" type="button" role="tab" [attr.aria-controls]="'v-pills-' + item.short_name" aria-selected="true">{{ item.nombre }}</button>
+                </div> 
+            </div>
+            <div id="content" class="col-9">
+                <!-- generate pdfViewer -->
+                
+                    <div class="viewer" *ngIf="pdfSrc; else isNull" >
+                        <pdf-viewer 
+                    [src]="pdfSrc"
+                    [render-text]="true"
+                    [original-size]="true"
+                    style="display: block; width: auto; height: 400px; background-color: gainsboro;"
+                    [page]="1"
+                    [zoom]="0.8"
+                    [zoom-scale]="'page-width'"></pdf-viewer>
                     <div id="firmas-box">
                         <div>
                             <span class="text-muted text-center">Firma Representante</span>
@@ -29,12 +29,15 @@
                             <span class="text-muted text-center">Firma Cliente</span>
                         </div>
                     </div>
+                    </div>
+
+                    <ng-template #isNull>
+                        <div class="custom-loader" *ngIf="isLoading"></div>
+                        <h2 class="text-muted text-center mt-4" *ngIf="!isLoading">Seleccione un contrato</h2>
                     </ng-template>
-                </ng-container>                
-            </div>
-            <div [ngbNavOutlet]="nav" class="ms-4">            
-            </div>
-           </div>
+
+                </div>
+           </div>    
 
         </div>
         <ng-template #nothing>
