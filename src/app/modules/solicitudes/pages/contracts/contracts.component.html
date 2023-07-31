@@ -6,7 +6,7 @@
            <div class="d-flex flex-row justify-content-between gap-2">
             <div id="aside" class="col-3">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <button (click)="setPdfSource(item.file)" *ngFor="let item of data" class="nav-link" data-toggle="pill" type="button" role="tab" [attr.aria-controls]="'v-pills-' + item.short_name" aria-selected="true">{{ item.nombre }}</button>
+                    <button [attr.id]="item.short_name + '-btn'" (click)="setPdfSource(item.short_name, item.file)" *ngFor="let item of data" class="nav-link" data-toggle="pill" type="button" role="tab" [attr.aria-controls]="'v-pills-' + item.short_name" aria-selected="true">{{ item.nombre }}</button>
                 </div> 
             </div>
             <div id="content" class="col-9">

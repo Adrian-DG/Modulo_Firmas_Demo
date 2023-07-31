@@ -25,10 +25,16 @@ export class ContractsComponent implements OnInit, AfterViewInit {
     setTimeout(() =>  this._solicitudes.getSolicitudContracts(this.id), 2000);
   }
 
-  setPdfSource(source: string): void {
+  setPdfSource(shortName: string, source: string): void {
     this.pdfSrc = null;
     this.isLoading = true;
+    
+    const previousSelectedBtn = document.getElementsByClassName('selected');
+    previousSelectedBtn.item(0)?.classList.remove('selected');
+
     setTimeout(() => {
+      const newSelectedButton = document.getElementById(shortName + '-btn');
+      newSelectedButton?.classList.add('selected');
       this.pdfSrc = source;
       this.isLoading = false;
     }, 2000)
